@@ -1,0 +1,11 @@
+- name: Add tower host
+  hosts: all
+  connection: local
+  tasks:
+  - name: Add tower host
+    tower_host:
+      name: "{{ newVMIP }}"
+      description: "Local Host Group"
+      inventory: "WORKFLOW"
+      state: present
+      tower_config_file: "~/tower_cli.cfg"

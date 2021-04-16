@@ -1,0 +1,38 @@
+- hosts: all
+  tasks:
+  - name: Start service SNMPTRAP, if not started
+    win_service:
+      name: SNMPTRAP
+      start_mode: auto
+      state: started
+
+  - name: Stop service iphlpsvc, if started
+    win_service:
+      name: iphlpsvc
+      start_mode: disabled
+      state: stopped
+
+  - name: Stop service RasAuto, if started
+    win_service:
+      name: RasAuto
+      start_mode: disabled
+      state: stopped
+
+  - name: Stop service RasMan, if started
+    win_service:
+      name: RasMan
+      start_mode: disabled
+      state: stopped
+
+  - name: Start service Spooler, if not started
+    win_service:
+      name: Spooler
+      start_mode: manual
+      state: started
+
+#  - name: Stop service WinHttpAutoProxySvc, if started
+#    win_service:
+#      name: WinHttpAutoProxySvc
+#      start_mode: disabled
+#      state: stopped
+
